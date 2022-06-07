@@ -1,4 +1,5 @@
 import express from "express"
+import { getHotel } from "../controllers/hotelContr.js";
 import { createRoom, updateRoom, deleteRoom, getRoom, getRooms } from "../controllers/roomContr.js";
 import { verifyAdmin } from "../utils/verifyToken.js";
 
@@ -16,7 +17,7 @@ router.put("/:id", verifyAdmin, updateRoom)
 router.delete("/:id/:hotelId", verifyAdmin, deleteRoom)
 
 //GET
-router.get("/:hotelId", getRoom)
+router.get("/:id", getRoom)
 
 //GET ALL
 router.get("/", getRooms)
