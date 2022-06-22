@@ -6,6 +6,7 @@ import userRoute from "./routes/userRoutes.js"
 import hotelRoute from "./routes/hotelRoutes.js"
 import roomRoute from "./routes/roomRoutes.js"
 import cookieParser from 'cookie-parser';
+import cors from 'cors'
 
 const app = express()
 
@@ -27,7 +28,7 @@ mongoose.connection.on("disconnected", () => {
 //middlewares
 
 app.use(cookieParser())
-
+app.use(cors())
 app.use(express.json())
 
 app.use("/api/auth", authRoute);
